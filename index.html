@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タウマゼイン・サミット 2026 | 安田講堂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a192f; /* アカデミックなネイビー */
+            --accent-color: #e67e22;  /* 驚き（タウマゼイン）のオレンジ */
+            --text-color: #333;
+            --bg-light: #f9f7f2;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Noto Serif JP', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
+                        url('https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=1500&q=80'); /* 安田講堂イメージ */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-main { background-color: var(--accent-color); color: #fff; }
+        .btn-sub { border: 2px solid #fff; color: #fff; }
+        .btn:hover { opacity: 0.8; transform: translateY(-3px); }
+
+        /* --- Concept Section --- */
+        .section { padding: 80px 0; }
+        .bg-light { background-color: var(--bg-light); }
+        .center { text-align: center; }
+
+        .concept-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* --- Speaker Section --- */
+        .speaker-main {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .speaker-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .speaker-img img { width: 100%; display: block; filter: grayscale(20%); }
+
+        .speaker-info { flex: 1; min-width: 300px; }
+
+        /* --- 5 Speakers Grid --- */
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .speaker-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .speaker-card h4 { margin: 10px 0 5px; color: var(--primary-color); }
+        .speaker-card p { font-size: 0.85rem; line-height: 1.4; color: #666; }
+
+        /* --- Kanji Recruitment --- */
+        .kanji-box {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 60px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #050c18;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .org-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .section { padding: 50px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content container">
+            <h1>安田講堂で、知性は「野生」に出会う。</h1>
+            <p>2026.06.16 | 元京都大学総長 山極壽一 特別登壇<br>
+            4つのコミュニティが境界を越える、歴史的一日。</p>
+            <div class="btn-group">
+                <a href="#join" class="btn btn-main">イベントに参加する</a>
+                <a href="#kanji" class="btn btn-sub">幹事団に参加する</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container center">
+            <h2>Thaumazein（タウマゼイン）とは</h2>
+            <div class="concept-text">
+                <p>アリストテレスは「知恵の始まり」を驚き（タウマゼイン）であると言いました。<br>
+                合理性や効率が優先される現代、私たちは立ち止まって「驚く」ことを忘れてはいないでしょうか？</p>
+                <p>日本の知の象徴である<strong>東京大学 安田講堂</strong>に、<strong>京都大学 前総長・山極壽一氏</strong>を迎え、<br>
+                4つの異なる哲学を持つ団体が交差します。境界が溶け、純粋な驚きが溢れ出す瞬間を、共に作りましょう。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="center">Main Speaker</h2>
+            <div class="speaker-main">
+                <div class="speaker-img">
+                    <img src="https://via.placeholder.com/600x400?text=Juichi+Yamagiwa" alt="山極壽一氏">
+                </div>
+                <div class="speaker-info">
+                    <h3>山極 壽一 <small>氏</small></h3>
+                    <p><strong>人類学者・元京都大学総長</strong></p>
+                    <p>ゴリラ研究の第一人者として、人類の起源から現代社会を問い直す。言葉以前の「共鳴」や「驚き」をキーワードに、安田講堂という舞台で、私たちが進むべき未来への指針を提示します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="center">Thaumazein Speakers</h2>
+            <p class="center">2/11 プレイベントから繋がる、多様な「驚き」の体現者たち</p>
+            <div class="speaker-grid">
+                <div class="speaker-card">
+                    <h4>岡田 亜理寿</h4>
+                    <p>看護師 / 砂漠喫茶<br>「思い合う関係が世界を変える」</p>
+                </div>
+                <div class="speaker-card">
+                    <h4>久保田 しおん</h4>
+                    <p>物理学者 / ニュートリノ<br>「死なない意味を探すのが文化」</p>
+                </div>
+                <div class="speaker-card">
+                    <h4>渡邊 和樹</h4>
+                    <p>哲学者 / NPO<br>「世界は秘密の出会いに開かれている」</p>
+                </div>
+                <div class="speaker-card">
+                    <h4>風間 健人</h4>
+                    <p>起業家 / CEO<br>「境界を越えるたびに見えるものが増える」</p>
+                </div>
+                <div class="speaker-card">
+                    <h4>岩波 直樹</h4>
+                    <p>モデレーター / デザイン<br>「バーンと来る一歩に身を投じる」</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kanji" class="section">
+        <div class="container">
+            <div class="kanji-box">
+                <h2>共に「場」を創る幹事メンバーを募集</h2>
+                <p>安田講堂という特別な場所で、山極先生や登壇者、<br>そして熱量の高い参加者と共に歴史の一ページを創りませんか？</p>
+                <p>「観客」ではなく「当事者」として、この熱狂の設計に加わりたい方をお待ちしています。</p>
+                <a href="#" class="btn btn-main" style="margin-top: 20px;">幹事団にエントリーする</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Organizers</h3>
+            <ul class="org-list">
+                <li>学士会YELL</li>
+                <li>京都大学同窓会若手会</li>
+                <li>eumo</li>
+                <li>GENERYS</li>
+            </ul>
+            <p>&copy; 2026 Thaumazein Summit Executive Committee. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
