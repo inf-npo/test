@@ -9,10 +9,11 @@
         :root {
             --navy: #05162e;
             --gold: #c5a059;
-            --cream: #f9f7f2;
+            --cream: #fdfbf7;
             --text: #222;
         }
 
+        * { box-sizing: border-box; }
         body {
             margin: 0;
             font-family: 'Noto Sans JP', sans-serif;
@@ -29,11 +30,29 @@
             padding: 0 20px;
         }
 
-        /* --- Hero --- */
+        /* --- 1. アナウンスバナー（追加部分） --- */
+        .top-banner {
+            background-color: var(--gold);
+            color: var(--navy);
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            position: relative;
+            z-index: 1000;
+        }
+        .top-banner a {
+            color: inherit;
+            text-decoration: underline;
+            margin-left: 10px;
+        }
+
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(5, 22, 46, 0.8), rgba(5, 22, 46, 0.8)), 
-                        url('https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=1500&q=80');
+                        url('2026_0616_banner_g.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -44,19 +63,27 @@
 
         .hero h1 {
             font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        /* Concept notation: Wonder x Wander */
+        .concept-symbol {
+            font-size: 1.2rem;
+            letter-spacing: 0.4em;
+            color: var(--gold);
             margin-bottom: 20px;
-            line-height: 1.3;
+            text-transform: uppercase;
         }
 
         .hero p.tagline {
             font-size: 1.3rem;
-            color: var(--gold);
             margin-bottom: 40px;
-            letter-spacing: 0.1em;
+            opacity: 0.9;
         }
 
         .hero-info {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border-top: 1px solid rgba(255,255,255,0.3);
             border-bottom: 1px solid rgba(255,255,255,0.3);
             padding: 15px 0;
@@ -65,7 +92,7 @@
 
         .btn-group { margin-top: 50px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
         .btn {
-            padding: 18px 40px;
+            padding: 18px 45px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 4px;
@@ -73,6 +100,7 @@
         }
         .btn-main { background: var(--gold); color: var(--navy); }
         .btn-sub { border: 2px solid #fff; color: #fff; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
         /* --- Section General --- */
         .section { padding: 100px 0; }
@@ -87,68 +115,64 @@
             align-items: center;
             margin-top: 50px;
         }
-        .speaker-main img { width: 100%; border-radius: 10px; filter: grayscale(20%); }
+        .speaker-main img { width: 100%; border-radius: 10px; }
 
         .speaker-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 60px;
         }
         .speaker-card {
             background: #fff;
             padding: 30px;
-            border-bottom: 4px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
-        .speaker-card h4 { margin: 0 0 10px; font-size: 1.2rem; }
-        .speaker-card p { font-size: 0.9rem; color: #555; margin: 0; }
 
-        /* --- Program --- */
-        .program-list { max-width: 800px; margin: 40px auto; text-align: left; }
-        .program-item {
-            display: flex;
-            gap: 20px;
-            padding: 20px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .time { font-weight: bold; color: var(--gold); min-width: 100px; }
-
-        /* --- Kanji --- */
-        .kanji-box {
+        /* --- Kanji Section --- */
+        #kanji .kanji-box {
             background: var(--navy);
             color: #fff;
-            padding: 60px;
-            border-radius: 15px;
+            padding: 80px 40px;
+            border-radius: 20px;
         }
 
         /* --- Footer --- */
         footer {
             background: #030a14;
-            color: #aaa;
+            color: #888;
             padding: 60px 0;
             text-align: center;
         }
-        .orgs { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; color: #fff; font-size: 0.9rem; }
+        .orgs { margin-bottom: 20px; color: #fff; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
-            .speaker-main { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.2rem; }
+            .section { padding: 60px 0; }
+            .speaker-main { grid-template-columns: 1fr; }
+            .top-banner { font-size: 0.85rem; padding: 12px 10px; line-height: 1.4; }
         }
     </style>
 </head>
 <body>
 
+    <div class="top-banner">
+        【幹事団・共創メンバー募集中】安田講堂の舞台を共に創る仲間を求めています。
+        <a href="#kanji">詳細・応募はこちら</a>
+    </div>
+
     <header class="hero">
         <div class="container">
+            <div class="concept-symbol">Wonder x Wander</div>
             <h1>人類はどこに向かうのか？<br>我々はどこに向かいたいのか</h1>
             <p class="tagline">— 答えなき問いに向き合う混沌（カオス）のタベー —</p>
             <div class="hero-info">
                 2026.06.16 TUE 18:00 START | 東京大学 安田講堂
             </div>
             <div class="btn-group">
-                <a href="#" class="btn btn-main">目撃者として参加する</a>
-                <a href="#kanji" class="btn btn-sub">幹事団に参加する</a>
+                <a href="#register" class="btn btn-main">目撃者として参加する</a>
+                <a href="#kanji" class="btn btn-sub">当事者（幹事）として参加する</a>
             </div>
         </div>
     </header>
@@ -156,7 +180,7 @@
     <section class="section">
         <div class="container center">
             <h2>あなたのキッカケを見つけるための夜</h2>
-            <div style="max-width: 800px; margin: 0 auto; font-size: 1.15rem; text-align: justify;">
+            <div style="max-width: 800px; margin: 40px auto; font-size: 1.1rem; text-align: justify;">
                 <p>日々の小さな違和感や、ふと理解できない出来事に心が動く瞬間。その直感や情緒から始まる未来を、5人の実践者の対話を通じてお届けします。正解のない混沌とした時代に、私たちはどこへ向かおうとしているのか。安田講堂という歴史の目撃者たちが集う場所で、明日に繋がる何かを感じ取ってください。</p>
             </div>
         </div>
@@ -169,8 +193,8 @@
                 <div><img src="https://via.placeholder.com/600x800?text=Juichi+Yamagiwa" alt="山極壽一氏"></div>
                 <div>
                     <h3>山極 壽一 <small>氏</small></h3>
-                    <p style="color: var(--gold); font-weight: bold;">前京都大学総長 ／ 総合地球環境学研究所所長</p>
-                    <p>霊長類学・人類進化論を専門に、野生ゴリラの研究に従事。「つながり」と「共感」から人間社会を読み解き、日本学術会議会長、2025年大阪・関西万博シニアアドバイザー等を歴任。南方熊楠賞受賞。</p>
+                    <p style="color: var(--gold); font-weight: bold; margin-bottom: 20px;">前京都大学総長 ／ 総合地球環境学研究所所長</p>
+                    <p>霊長類学・人類進化論を専門に、屋久島のニホンザルやアフリカの野生ゴリラの社会生態学的研究に従事。「つながり」と「共感」から人間社会を読み解く知の巨星。日本学術会議会長、2025年大阪・関西万博シニアアドバイザー等を歴任。</p>
                 </div>
             </div>
         </div>
@@ -178,55 +202,39 @@
 
     <section class="section">
         <div class="container">
-            <h2 class="center">Talk Session Panelists</h2>
+            <h2 class="center" style="margin-bottom: 60px;">Talk Session Panelists</h2>
             <div class="speaker-grid">
                 <div class="speaker-card">
                     <h4>久保田 しおん</h4>
-                    <p>素粒子物理学者。ハーバード大学博士。ニュートリノ研究に従事。Forbes Asia 30 Under 30選出。</p>
+                    <p>素粒子物理学者。ハーバード大学博士。ニュートリノ物理学を専門とし国際共同研究DUNEに参画。Forbes Asia 30 Under 30選出。</p>
                 </div>
                 <div class="speaker-card">
                     <h4>風間 健人</h4>
-                    <p>Quark共同創業者・CEO。AI×XRで社会インフラのDXに取り組むエンジニア。</p>
+                    <p>Quark共同創業者・CEO。東大院博士課程。AI×XRで技能移転と社会インフラのDXに取り組むエンジニア。</p>
                 </div>
                 <div class="speaker-card">
                     <h4>岡田 亜理寿</h4>
-                    <p>京都・集会所喫茶店「ことぶき」女将。看護師。環境アクションと対話の場を推進。</p>
+                    <p>京都・集会所喫茶店「ことぶき」女将。看護師。環境アクションと対話の場づくりを推進する実践者。</p>
                 </div>
                 <div class="speaker-card">
                     <h4>渡邊 和樹</h4>
-                    <p>空海研究者。NPO「寺子屋みなてらす」共同創業。東大文卒、多摩美院で研究を深める。</p>
-                </div>
-                <div class="speaker-card" style="border-bottom-color: var(--navy);">
-                    <h4>岩波 直樹 <small>(Mod.)</small></h4>
-                    <p>非営利株式会社eumo 代表取締役。未来共創のデザインとWell-beingを追究。</p>
+                    <p>空海研究者。NPO「寺子屋みなてらす」共同創業。東大文卒、多摩美術大学院で空海研究を深めている。</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="section bg-cream">
-        <div class="container center">
-            <h2>Program</h2>
-            <div class="program-list">
-                <div class="program-item">
-                    <div class="time">18:00 - 18:20</div>
-                    <div><strong>第1部：基調講演（仮）「私のタウマゼイン」</strong><br>山極 壽一 氏</div>
-                </div>
-                <div class="program-item">
-                    <div class="time">18:30 - 20:00</div>
-                    <div><strong>第2部：トークセッション</strong><br>山極先生 × パネリスト</div>
-                </div>
-            </div>
-            <p style="margin-top: 30px;"><strong>料金：4,000円</strong>（学生料金・早期割引有）</p>
         </div>
     </section>
 
     <section id="kanji" class="section">
         <div class="container center">
             <div class="kanji-box">
-                <h2>「混沌のタベー」を共にデザインする</h2>
-                <p>安田講堂という特別な場所で、山極先生や登壇者、そして1,000人の参加者と共に、<br>答えなき問いに向き合う「場」を設計する幹事メンバーを募集しています。</p>
-                <a href="#" class="btn btn-main" style="margin-top: 30px;">幹事エントリーフォームへ</a>
+                <h2 style="font-size: 2.5rem; margin-bottom: 30px;">「混沌のタベー」を共にデザインする</h2>
+                <p style="max-width: 800px; margin: 0 auto 40px; font-size: 1.15rem;">
+                    安田講堂という特別な場所で、山極先生や登壇者、そして1,000人の参加者と共に、<br>答えなき問いに向き合う「場」を設計する幹事メンバー（共創メンバー）を募集しています。
+                </p>
+                <a href="#" class="btn btn-main" style="padding: 20px 60px; font-size: 1.2rem;">幹事エントリーフォームへ</a>
+                <p style="margin-top: 30px; opacity: 0.8; font-size: 0.9rem;">
+                    主催：学士会YELL / 京大若手会 / eumo / GENERYS / UTokyo
+                </p>
             </div>
         </div>
     </section>
@@ -234,9 +242,9 @@
     <footer>
         <div class="container">
             <div class="orgs">
-                <span>学士会YELL</span> / <span>京大若手会</span> / <span>eumo</span> / <span>GENERYS</span> / <span>UTokyo</span>
+                学士会YELL / 京都大学同窓会若手会 / 非営利株式会社eumo / 株式会社ジェネリス / 東京大学デベロップメントオフィス
             </div>
-            <p>&copy; 2026 Humanity Summit Executive Committee. All Rights Reserved.</p>
+            <p>&copy; 2026 Humanity Summit Executive Committee.</p>
         </div>
     </footer>
 
