@@ -10,41 +10,63 @@
             --navy: #05162e;
             --gold: #c5a059;
             --cream: #fdfbf7;
-            --text: #222;
+            --text: #1a1a1a;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.85);
         }
 
         * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             margin: 0;
             font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.8;
+            line-height: 1.9;
             color: var(--text);
-            background: #fff;
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 { font-family: 'Noto Serif JP', serif; }
+        h1, h2, h3 { font-family: 'Noto Serif JP', serif; letter-spacing: 0.05em; }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* アナウンスバナー */
-        .announcement {
-            background-color: var(--gold);
-            color: var(--navy);
-            text-align: center;
+        /* --- 1. スティッキーヘッダー (Netlify風モダンナビ) --- */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             padding: 12px 0;
-            font-size: 0.9rem;
-            font-weight: bold;
         }
-        .announcement a { color: inherit; margin-left: 10px; }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-logo { font-family: 'Noto Serif JP'; font-weight: 900; font-size: 1.1rem; color: var(--navy); }
+        .nav-link {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+            background: var(--gold);
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
 
-        /* メインビジュアル */
+        /* --- 2. メイン画像 (Hero Image) --- */
         .main-visual {
             width: 100%;
-            line-height: 0;
+            margin-top: 60px; /* ヘッダー分 */
+            background-color: #000;
         }
         .main-visual img {
             width: 100%;
@@ -52,189 +74,202 @@
             display: block;
         }
 
-        /* ヒーローセクション */
-        .hero-section {
+        /* --- 3. ヒーローセクション --- */
+        .hero {
             background-color: var(--navy);
             color: #fff;
+            padding: 100px 0;
             text-align: center;
-            padding: 70px 20px;
         }
-
-        .concept-symbol {
+        .hero .concept {
             font-size: 1.1rem;
-            letter-spacing: 0.4em;
+            letter-spacing: 0.5em;
             color: var(--gold);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             text-transform: uppercase;
         }
-
-        .hero-section h1 {
-            font-size: clamp(1.8rem, 5vw, 3.5rem);
-            margin: 0 0 15px;
-            line-height: 1.3;
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            line-height: 1.4;
+            margin-bottom: 24px;
         }
-
-        .tagline {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            margin-bottom: 35px;
-            opacity: 0.9;
+        .hero .tagline {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.8;
+            margin-bottom: 48px;
+            font-weight: 300;
         }
-
-        .event-info {
-            font-size: 1.1rem;
-            border-top: 1px solid rgba(255,255,255,0.3);
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding: 15px 25px;
+        .event-badge {
             display: inline-block;
+            border: 1px solid var(--gold);
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            border-radius: 2px;
         }
 
-        .btn-group { margin-top: 45px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .btn {
-            padding: 18px 45px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: 0.3s;
+        /* --- 4. コンテンツセクション --- */
+        .section { padding: 120px 0; }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 60px;
+            position: relative;
         }
-        .btn-main { background: var(--gold); color: var(--navy); }
-        .btn-sub { border: 2px solid #fff; color: #fff; }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            margin: 24px auto 0;
+        }
 
-        /* コンテンツセクション */
-        .section { padding: 90px 0; }
-        .bg-cream { background: var(--cream); }
-        .center { text-align: center; }
-
+        /* 登壇者カード */
         .speaker-main {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            margin-bottom: 100px;
+        }
+        .speaker-main-img { flex: 0 0 40%; }
+        .speaker-main-img img { width: 100%; border-radius: 4px; box-shadow: 20px 20px 0 var(--cream); }
+        .speaker-main-content { flex: 1; }
+        .speaker-label { color: var(--gold); font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; display: block; }
+        
+        .panelist-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 50px;
-            align-items: center;
-            margin-top: 45px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
-        .speaker-main img { width: 100%; border-radius: 10px; }
+        .panelist-card {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 4px;
+            height: 100%;
+        }
+        .panelist-card h4 { margin-top: 0; font-size: 1.4rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 16px; }
 
-        .speaker-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
-        }
-        .speaker-card {
-            background: #fff;
-            padding: 30px;
-            border-left: 4px solid var(--gold);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        /* 幹事募集 */
-        .kanji-box {
+        /* --- 5. 幹事募集 (CTA) --- */
+        .cta-section {
             background: var(--navy);
             color: #fff;
-            padding: 70px 40px;
-            border-radius: 20px;
-        }
-
-        footer {
-            background: #030a14;
-            color: #888;
-            padding: 50px 0;
+            padding: 120px 0;
             text-align: center;
-            font-size: 0.85rem;
         }
+        .cta-box { max-width: 700px; margin: 0 auto; }
+        .btn-large {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 24px 64px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            margin-top: 40px;
+            transition: 0.3s;
+        }
+        .btn-large:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+
+        /* --- 6. フッター --- */
+        footer {
+            padding: 80px 0;
+            background: #000;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        .footer-orgs { color: #fff; margin-bottom: 24px; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
-            .speaker-main { grid-template-columns: 1fr; text-align: center; }
-            .hero-section h1 { font-size: 2.1rem; }
-            .section { padding: 60px 0; }
+            .speaker-main { flex-direction: column; gap: 32px; }
+            .speaker-main-img { flex: 0 0 100%; }
+            .section { padding: 80px 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="announcement">
-        【幹事団・共創メンバー募集中】安田講堂の舞台を共に創る仲間を求めています。
-        <a href="#kanji">詳細・応募はこちら</a>
-    </div>
-
-    <div class="main-visual">
-        <img src="2026_0616_banner_g.png" alt="人類はどこに向かうのか？メインバナー">
-    </div>
-
-    <header class="hero-section">
-        <div class="container">
-            <div class="concept-symbol">Wonder x Wander</div>
-            <h1>人類はどこに向かうのか？<br>我々はどこに向かいたいのか</h1>
-            <p class="tagline">— 答えなき問いに向き合う混沌（カオス）のタベー —</p>
-            <div class="event-info">
-                2026.06.16 TUE 18:00 START | 東京大学 安田講堂
-            </div>
-            <div class="btn-group">
-                <a href="#register" class="btn btn-main">目撃者として参加する</a>
-                <a href="#kanji" class="btn btn-sub">幹事として参加する</a>
-            </div>
+    <header class="header">
+        <div class="container header-inner">
+            <div class="header-logo">Wonder x Wander</div>
+            <a href="#kanji" class="nav-link">幹事に応募する</a>
         </div>
     </header>
 
-    <section class="section">
-        <div class="container center">
-            <h2>あなたのキッカケを見つけるための夜</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: justify;">
-                <p>日々の小さな違和感や、ふと理解できない出来事に心が動く瞬間。その直感や情緒から始まる未来を、実践者の対話を通じてお届けします。正解のない混沌とした時代に、私たちはどこへ向かおうとしているのか。安田講堂という歴史の目撃者たちが集う場所で、明日に繋がる何かを感じ取ってください。</p>
+    <div class="main-visual">
+        <img src="2026_0616_banner_g.jpg" alt="Humanity Summit 2026 Banner">
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="concept">Wonder x Wander</div>
+            <h1>人類はどこに向かうのか？<br>我々はどこに向かいたいのか</h1>
+            <p class="tagline">— 答えなき問いに向き合う混沌（カオス）のタベー —</p>
+            <div class="event-badge">
+                2026.06.16 TUE 18:00 | 安田講堂
             </div>
         </div>
     </section>
 
-    <section class="section bg-cream">
+    <section class="section">
         <div class="container">
-            <h2 class="center">Main Speaker</h2>
+            <h2 class="section-title">あなたのキッカケを見つけるための夜</h2>
+            <div style="max-width: 750px; margin: 0 auto; text-align: justify; color: #444;">
+                <p>日々の小さな違和感や、ふと理解できない出来事に心が動く瞬間が、新しい生き方の扉を開くかもしれません。 正解のない混沌とした時代に、私たちはどこへ向かおうとしているのか。安田講堂という歴史の目撃者たちが集う場所で、感じ取ったものを明日に繋げてください。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-cream" style="background: var(--cream);">
+        <div class="container">
             <div class="speaker-main">
-                <div><img src="img/Prof.yamagiwa.JPG" alt="山極壽一氏"></div>
-                <div>
+                <div class="speaker-main-img">
+                    <img src="https://via.placeholder.com/600x800?text=Juichi+Yamagiwa" alt="Juichi Yamagiwa">
+                </div>
+                <div class="speaker-main-content">
+                    <span class="speaker-label">Main Speaker</span>
                     <h3>山極 壽一 氏</h3>
-                    <p style="color: var(--gold); font-weight: bold;">前京都大学総長 ／ 総合地球環境学研究所所長</p>
-                    <p>霊長類学・人類進化論を専門に、屋久島のニホンザルやアフリカの野生ゴリラの社会生態学的研究に従事。「つながり」と「共感」から人間社会を読み解く。日本学術会議会長、2025年大阪・関西万博シニアアドバイザー等を歴任。南方熊楠賞受賞。</p>
+                    <p style="font-weight: 700; margin-bottom: 24px;">前京都大学総長 ／ 総合地球環境学研究所所長</p>
+                    <p>霊長類学・人類進化論を専門とし、野生ゴリラの社会生態学的研究を通じて「つながり」と「共感」から人間社会を読み解く知の巨星。 日本学術会議会長、2025年大阪・関西万博シニアアドバイザー等を歴任。</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="section">
-        <div class="container">
-            <h2 class="center" style="margin-bottom: 50px;">Talk Session Panelists</h2>
-            <div class="speaker-grid">
-                <div class="speaker-card">
+            <h3 class="section-title">Talk Session Panelists</h3>
+            <div class="panelist-grid">
+                <div class="panelist-card">
                     <h4>久保田 しおん</h4>
-                    <p>素粒子物理学者。ハーバード大学博士。国際共同研究DUNEに参画。Forbes Asia 30 Under 30選出。MIT Technology Review Innovators Under 35 Japan選出。</p>
+                    <p>素粒子物理学者。ハーバード大学博士。国際共同研究DUNEに参画し、Forbes Asia 30 Under 30選出。</p>
                 </div>
-                <div class="speaker-card">
+                <div class="panelist-card">
                     <h4>風間 健人</h4>
-                    <p>Quark共同創業者・CEO。東大院博士課程。AI×XRで技能移転と社会インフラのDXに取り組むエンジニア。</p>
+                    <p>Quark共同創業者・CEO。AI×XRで社会インフラのDXに取り組むエンジニア。</p>
                 </div>
-                <div class="speaker-card">
+                <div class="panelist-card">
                     <h4>岡田 亜理寿</h4>
-                    <p>京都・集会所喫茶店「ことぶき」女将。看護師。環境アクションと対話の場づくりを推進する実践者。</p>
+                    <p>京都・集会所喫茶店「ことぶき」女将。看護師。環境アクションと対話の場づくりを推進。</p>
                 </div>
-                <div class="speaker-card">
+                <div class="panelist-card">
                     <h4>渡邊 和樹</h4>
-                    <p>空海研究者。NPO「寺子屋みなてらす」共同創業。東大文卒、多摩美術大学院で研究を深めている。</p>
+                    <p>空海研究者。NPO「寺子屋みなてらす」共同創業。東大文卒、多摩美院で研究中。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="kanji" class="section">
-        <div class="container center">
-            <div class="kanji-box">
-                <h2>「混沌のタベー」を共にデザインする</h2>
-                <p>安田講堂という特別な場所で、山極先生や登壇者と共に、<br>答えなき問いに向き合う「場」を設計する幹事メンバーを募集しています。</p>
-                <a href="#" class="btn btn-main" style="margin-top: 30px;">幹事エントリーフォームへ</a>
-            </div>
+    <section id="kanji" class="cta-section">
+        <div class="container cta-box">
+            <h2 style="font-size: 2.5rem; margin-bottom: 32px;">「混沌のタベー」を共にデザインする</h2>
+            <p style="opacity: 0.9; font-size: 1.1rem;">安田講堂という特別な場所で、山極先生や登壇者と共に、答えなき問いに向き合う「場」を設計する幹事メンバー（共創メンバー）を募集しています。</p>
+            <a href="#" class="btn-large">幹事エントリーフォームへ</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>主催：学士会YELL / 京都大学同窓会若手会 / 非営利株式会社eumo / 株式会社ジェネリス / 東京大学デベロップメントオフィス</p>
+            <div class="footer-orgs">
+                主催：学士会YELL / 京都大学同窓会若手会 / eumo / GENERYS / UTokyo
+            </div>
             <p>&copy; 2026 Humanity Summit Executive Committee.</p>
         </div>
     </footer>
