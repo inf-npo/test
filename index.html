@@ -33,18 +33,7 @@
             padding: 0 24px;
         }
 
-        /* --- 1. 最上部：告知バナー --- */
-        .announcement {
-            background-color: var(--gold);
-            color: var(--navy);
-            text-align: center;
-            padding: 12px 0;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        .announcement a { color: inherit; margin-left: 10px; }
-
-        /* --- 2. メインビジュアル --- */
+        /* --- 1. メインビジュアル (最上部) --- */
         .main-visual {
             width: 100%;
             background-color: #000;
@@ -55,11 +44,11 @@
             display: block;
         }
 
-        /* --- 3. ヒーローセクション --- */
+        /* --- 2. Heroセクション (ネイビー背景) --- */
         .hero {
             background-color: var(--navy);
             color: #fff;
-            padding: 100px 0;
+            padding: 90px 0;
             text-align: center;
         }
         .hero .concept-label {
@@ -100,8 +89,8 @@
         .btn-sub { border: 2px solid #fff; color: #fff; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        /* --- セクション共通 --- */
-        .section { padding: 120px 0; }
+        /* --- 3. コンテンツセクション --- */
+        .section { padding: 110px 0; }
         .section-title {
             text-align: center;
             font-size: 2rem;
@@ -116,26 +105,29 @@
             margin: 24px auto 0;
         }
 
-        /* 登壇者カード */
+        /* 登壇者紹介 */
         .speaker-main {
             display: flex;
             gap: 60px;
             align-items: flex-start;
-            margin-bottom: 100px;
+            margin-bottom: 80px;
         }
         .speaker-main-img { flex: 0 0 40%; }
         .speaker-main-img img { width: 100%; border-radius: 4px; box-shadow: 20px 20px 0 var(--cream); }
+        .speaker-main-content { flex: 1; }
         
         .panelist-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
         .panelist-card {
             background: var(--cream);
-            padding: 40px;
+            padding: 35px;
             border-radius: 4px;
             height: 100%;
+            border-left: 4px solid var(--gold);
         }
 
         /* 詳細テーブル */
@@ -149,10 +141,10 @@
         .details-table td { padding: 20px 0; }
 
         /* 幹事募集 */
-        .cta-section {
-            background: var(--navy);
+        .cta-area {
+            background-color: var(--navy);
             color: #fff;
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
         }
 
@@ -166,19 +158,15 @@
         @media (max-width: 768px) {
             .speaker-main { flex-direction: column; }
             .speaker-main-img { flex: 0 0 100%; }
-            .section { padding: 80px 0; }
+            .section { padding: 70px 0; }
+            .hero { padding: 70px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="announcement">
-        【幹事団・共創メンバー募集中】安田講堂の舞台を共に創る仲間を求めています。
-        <a href="#kanji">詳細・応募はこちら</a>
-    </div>
-
     <div class="main-visual">
-        <img src="2026_0616_banner_g.png" alt="Humanity Summit 2026">
+        <img src="2026_0616_banner_g.png" alt="人類はどこに向かうのか？ 我々はどこに向かいたいのか">
     </div>
 
     <section class="hero">
@@ -186,9 +174,9 @@
             <div class="concept-label">Wonder x Wander</div>
             <h1>人類はどこに向かうのか？<br>我々はどこに向かいたいのか</h1>
             <p class="tagline">— 答えなき問いに向き合う混沌（カオス）のタベー —</p>
-            <p class="fee-info">参加費：4,000円（学生料金・早割あり）</p>
+            <p class="fee-info">参加費：4,000円（早期割引・学生料金設定あり）</p>
             <div class="btn-group">
-                <a href="https://peatix.com/event/4965021" class="btn btn-main" target="_blank">Peatixで申し込む</a>
+                <a href="https://peatix.com/event/4965021" class="btn btn-main" target="_blank">Peatixでお申し込み</a>
                 <a href="#kanji" class="btn btn-sub">幹事に応募する</a>
             </div>
         </div>
@@ -198,7 +186,7 @@
         <div class="container">
             <h2 class="section-title">Concept</h2>
             <div style="max-width: 750px; margin: 0 auto; text-align: justify;">
-                <p>日々の小さな違和感や、ふと理解できない出来事に心が動く瞬間が、新しい生き方の扉を開くかもしれません。正解のない混沌とした時代に、私たちはどこへ向かおうとしているのか。安田講堂という歴史の目撃者たちが集う場所で、実践者の話を通じて、明日に繋がる「キッカケ」を見つけてください。</p>
+                <p>「Wondering（思索・問い）」と「Wandering（彷徨・探索）」。この二つを行き来する営みこそが、新しい未来を拓く鍵となります。日々の小さな違和感や、ふと理解できない出来事に心が動く瞬間が、新しい生き方の扉を開くかもしれません。安田講堂という歴史の目撃者たちが集う場所で、第一線で活動する実践者たちの対話を通じ、明日に繋がる「驚き」を見つけてください。</p>
             </div>
         </div>
     </section>
@@ -213,26 +201,26 @@
                 <div class="speaker-main-content">
                     <h3>山極 壽一 氏</h3>
                     <p style="font-weight: 700; color: var(--gold); margin-bottom: 16px;">前京都大学総長 ／ 総合地球環境学研究所所長</p>
-                    <p>霊長類学・人類進化論を専門とし、野生ゴリラの研究を通じて「つながり」と「共感」から人間社会を読み解く知の巨星。日本学術会議会長、2025年大阪・関西万博シニアアドバイザー等を歴任。</p>
+                    <p>霊長類学・人類進化論を専門とし、屋久島のニホンザルやアフリカの野生ゴリラの社会生態学的研究に従事。「つながり」と「共感」から人間社会を読み解く知の巨星。日本学術会議会長、2025年大阪・関西万博シニアアドバイザー等を歴任。</p>
                 </div>
             </div>
 
             <div class="panelist-grid">
                 <div class="panelist-card">
                     <h4>久保田 しおん</h4>
-                    <p>素粒子物理学者。ハーバード大学博士。国際共同研究DUNEに参画。Forbes Asia 30 Under 30選出。</p>
+                    <p>素粒子物理学者（ニュートリノ物理学）。ハーバード大学博士。国際共同研究DUNEに参画し、Forbes Asia 30 Under 30等にも選定。</p>
                 </div>
                 <div class="panelist-card">
                     <h4>風間 健人</h4>
-                    <p>Quark共同創業者・CEO。AI×XRで社会インフラのDXに取り組むエンジニア。</p>
+                    <p>Quark共同創業者・CEO。東大院博士課程。AI×XRで技能移転と社会インフラのDXに取り組むエンジニア。</p>
                 </div>
                 <div class="panelist-card">
-                    <h4>岡田 亜理寿</h4>
-                    <p>京都・集会所喫茶店「ことぶき」女将。看護師。環境アクションと対話の場づくりを推進。</p>
+                    <h4>岡田 亜理涛</h4>
+                    <p>京都・集会所喫茶店「ことぶき」女将。看護師。環境アクションと対話の場づくりを推進する実践者。</p>
                 </div>
                 <div class="panelist-card">
                     <h4>渡邊 和樹</h4>
-                    <p>空海研究者。NPO「寺子屋みなてらす」共同創業。東大文卒、多摩美院で研究中。</p>
+                    <p>空海研究者。NPO「寺子屋みなてらす」共同創業。東大文学部卒、現在は多摩美術大学大学院で研究を深めている。</p>
                 </div>
             </div>
         </div>
@@ -257,24 +245,26 @@
                     </tr>
                 </table>
                 <div style="text-align: center; margin-top: 40px;">
-                    <a href="https://peatix.com/event/4965021" class="btn btn-main" target="_blank">お申し込み（Peatix）</a>
+                    <a href="https://peatix.com/event/4965021" class="btn btn-main" target="_blank">Peatixで申し込む</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="kanji" class="cta-section">
+    <section id="kanji" class="cta-area">
         <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 32px;">「混沌のタベー」を共にデザインする</h2>
-            <p style="max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem; opacity: 0.9;">安田講堂という特別な場所で、山極先生や登壇者と共に、答えなき問いに向き合う「場」を設計する幹事メンバーを募集しています。</p>
-            <a href="#" class="btn btn-main" style="background: var(--gold);">幹事エントリーフォームへ</a>
+            <h2 style="font-size: 2.2rem; margin-bottom: 24px; font-family: 'Noto Serif JP';">「混沌のタベー」を共にデザインする</h2>
+            <p style="max-width: 700px; margin: 0 auto; opacity: 0.9;">安田講堂という特別な場所で、山極先生や登壇者と共に、答えなき問いに向き合う「場」を設計する幹事メンバー（共創メンバー）を募集しています。</p>
+            <div class="btn-group">
+                <a href="#" class="btn btn-main" style="background: var(--gold); margin-top: 20px;">幹事エントリーフォームへ</a>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
             <div style="color: #fff; margin-bottom: 24px; font-size: 0.9rem;">
-                主催：学士会YELL / 京都大学同窓会若手会 / eumo / GENERYS / UTokyo
+                主催：学士会YELL / 京都大学同窓会若手会 / 非営利株式会社eumo / 株式会社ジェネリス / 国立大学法人東京大学デベロップメントオフィス
             </div>
             <p>&copy; 2026 Humanity Summit Executive Committee.</p>
         </div>
