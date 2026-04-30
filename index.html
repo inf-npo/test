@@ -116,6 +116,24 @@
         }
 
     /* 5名を中央寄せで並べるためのコンテナ */
+        .speaker-main {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+        }
+
+        .speaker-main-img {
+            flex: 0 0 40%;
+        }
+
+        .speaker-main-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 15px 15px 0 var(--cream);
+        }
         .speakers-layout {
             display: flex;
             flex-wrap: wrap;
