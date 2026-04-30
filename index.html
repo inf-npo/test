@@ -33,10 +33,12 @@
             padding: 0 24px;
         }
 
-        /* --- 1. メインビジュアル (最上部) --- */
+        /* --- 1. メインビジュアル (レスポンシブ・バッファ付き) --- */
         .main-visual {
             width: 100%;
-            background-color: #000;
+            background-color: var(--white); /* 左右のバッファを白に設定 */
+            display: flex;
+            justify-content: center;
         }
         .main-visual img {
             width: 100%;
@@ -44,7 +46,14 @@
             display: block;
         }
 
-        /* --- 2. Heroセクション (ネイビー背景) --- */
+        /* 横長画面（PC・タブレット）の時のみ、左右に15%の余白を設ける */
+        @media (min-width: 769px) {
+            .main-visual {
+                padding: 0 15%; 
+            }
+        }
+
+        /* --- 2. Heroセクション --- */
         .hero {
             background-color: var(--navy);
             color: #fff;
@@ -64,7 +73,7 @@
             margin-bottom: 24px;
         }
         .hero .tagline {
-            font-family: 'Noto Serif JP', serif; /* 明朝体に統一 */
+            font-family: 'Noto Serif JP', serif;
             font-size: clamp(1rem, 2vw, 1.3rem);
             opacity: 0.8;
             margin-bottom: 30px;
@@ -90,7 +99,7 @@
         .btn-sub { border: 2px solid #fff; color: #fff; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        /* --- 3. コンテンツセクション --- */
+        /* --- 3. セクション共通 --- */
         .section { padding: 110px 0; }
         .section-title {
             text-align: center;
@@ -106,7 +115,6 @@
             margin: 24px auto 0;
         }
 
-        /* 登壇者紹介 */
         .speaker-main {
             display: flex;
             gap: 60px;
@@ -131,7 +139,6 @@
             border-left: 4px solid var(--gold);
         }
 
-        /* 詳細テーブル */
         .details-table {
             width: 100%;
             border-collapse: collapse;
@@ -141,7 +148,6 @@
         .details-table th { text-align: left; padding: 20px 0; width: 30%; font-family: 'Noto Serif JP'; }
         .details-table td { padding: 20px 0; }
 
-        /* 幹事募集 */
         .cta-area {
             background-color: var(--navy);
             color: #fff;
@@ -166,15 +172,17 @@
 </head>
 <body>
 
+    <!-- 1. メインビジュアル (Web_banner_260426.png) -->
     <div class="main-visual">
         <img src="Web_banner_260426.png" alt="人類はどこに向かうのか？ 我々はどこに向かいたいのか">
     </div>
 
+    <!-- 2. Heroセクション -->
     <section class="hero">
         <div class="container">
             <div class="concept-label">Wonder x Wander</div>
             <h1>人類はどこに向かうのか？<br>我々はどこに向かいたいのか</h1>
-            <p class="tagline">〜 答えなき問いに向き合う混沌（カオス）のタベ 〜</p>
+            <p class="tagline">— 答えなき問いに向き合う混沌（カオス）のタベー —</p>
             <p class="fee-info">参加費：4,000円（早期割引・学生料金設定あり）</p>
             <div class="btn-group">
                 <a href="https://peatix.com/event/4965021" class="btn btn-main" target="_blank">Peatixでお申し込み</a>
@@ -183,6 +191,7 @@
         </div>
     </section>
 
+    <!-- Concept -->
     <section id="concept" class="section">
         <div class="container">
             <h2 class="section-title">Concept</h2>
@@ -192,6 +201,7 @@
         </div>
     </section>
 
+    <!-- Speakers -->
     <section id="speakers" class="section bg-cream" style="background: var(--cream);">
         <div class="container">
             <h2 class="section-title">Speakers</h2>
@@ -202,7 +212,7 @@
                 <div class="speaker-main-content">
                     <h3>山極 壽一 氏</h3>
                     <p style="font-weight: 700; color: var(--gold); margin-bottom: 16px;">前京都大学総長 ／ 総合地球環境学研究所所長</p>
-                    <p>霊長類学・人類進化論を専門とし、屋久島のニホンザルやアフリカの野生ゴリラの社会生態学的研究に従事。「つながり」と「共感」から人間社会を読み解く知の巨星。日本学術会議会長、2025年大阪・関西万博シニアアドバイザー等を歴任。</p>
+                    <p>霊長類学・人類進化論を専門とし、野生ゴリラの社会生態学的研究に従事。「つながり」と「共感」から人間社会を読み解く知の巨星。日本学術会議会長、2025年大阪・関西万博シニアアドバイザー等を歴任。</p>
                 </div>
             </div>
 
@@ -227,6 +237,7 @@
         </div>
     </section>
 
+    <!-- Details -->
     <section id="details" class="section">
         <div class="container">
             <h2 class="section-title">Details</h2>
@@ -244,6 +255,10 @@
                         <th>参加費</th>
                         <td>4,000円（早期割引・学生料金設定あり）</td>
                     </tr>
+                    <tr>
+                        <th>主催</th>
+                        <td>学士会YELL / 京大若手会 / eumo / GENERYS / UTokyo</td>
+                    </tr>
                 </table>
                 <div style="text-align: center; margin-top: 40px;">
                     <a href="https://peatix.com/event/4965021" class="btn btn-main" target="_blank">Peatixで申し込む</a>
@@ -252,6 +267,7 @@
         </div>
     </section>
 
+    <!-- 幹事募集 -->
     <section id="kanji" class="cta-area">
         <div class="container">
             <h2 style="font-size: 2.2rem; margin-bottom: 24px; font-family: 'Noto Serif JP';">「混沌のタベー」を共にデザインする</h2>
@@ -265,7 +281,7 @@
     <footer>
         <div class="container">
             <div style="color: #fff; margin-bottom: 24px; font-size: 0.9rem;">
-                主催：学士会YELL / 京都大学同窓会若手会 / 非営利株式会社eumo / 株式会社ジェネリス / 国立大学法人東京大学デベロップメントオフィス
+                主催：学士会YELL / 京都大学同窓会若手会 / 非営利株式会社eumo / 株式会社ジェネリス / 東京大学デベロップメントオフィス
             </div>
             <p>&copy; 2026 Humanity Summit Executive Committee.</p>
         </div>
